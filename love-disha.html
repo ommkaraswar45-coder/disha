@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love You Disha</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+.message {
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px red; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="message">
+    <h2>From Omm 💻<br>A Computer Coder</h2>
+    <h1>Love You Disha ❤️</h1>
+</div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
